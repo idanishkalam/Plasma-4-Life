@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "464376532489",
+    "firebase_url": "https://plasma4life-c8eae.firebaseio.com",
+    "project_id": "plasma4life-c8eae",
+    "storage_bucket": "plasma4life-c8eae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464376532489:android:61e434e3d6633f1efb32d8",
+        "android_client_info": {
+          "package_name": "com.example.plasma_4life"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464376532489-18o5fcu8gkgt9a8a353hgv1kmts239h0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3cqN2chmrPoABvkB1Rx_-TP28KWezVOc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464376532489-18o5fcu8gkgt9a8a353hgv1kmts239h0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
