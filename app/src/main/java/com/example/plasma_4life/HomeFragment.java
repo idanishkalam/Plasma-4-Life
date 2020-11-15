@@ -18,9 +18,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class HomeFragment extends Fragment {
 
-   DatabaseReference reference;
+   DatabaseReference reference1,reference2;
    long count_donor;
+   long count_req;
    TextView count;
+   TextView count_reqView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +35,10 @@ public class HomeFragment extends Fragment {
 
         View view= inflater.inflate(R.layout.fragment_home, container, false);
         count=view.findViewById(R.id.donor_count);
-        reference=FirebaseDatabase.getInstance().getReference().child("Donor");
-        reference.addValueEventListener(new ValueEventListener() {
+        count_reqView=view.findViewById(R.id.requests_count);
+        reference1=FirebaseDatabase.getInstance().getReference().child("Donor");
+        reference2=FirebaseDatabase.getInstance().getReference().child("Patient");
+        reference1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 count_donor=snapshot.getChildrenCount();
@@ -44,6 +48,18 @@ public class HomeFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
               //Do rightful
+            }
+        });
+        reference2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                count_req=snapshot.getChildrenCount();
+                count_reqView.setText(""+count_req);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
         return view;

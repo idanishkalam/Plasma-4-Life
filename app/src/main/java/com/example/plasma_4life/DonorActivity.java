@@ -15,7 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,7 +30,7 @@ import java.util.HashMap;
 
 public class DonorActivity extends AppCompatActivity {
 
-    private EditText mEmail,mPassword,b_group,mName,mBirth;
+    private EditText mEmail,mPassword,b_group,mName,mBirth,mNumber,mLocation;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mReference;
@@ -44,15 +43,17 @@ public class DonorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_donor);
 
         mAuth = FirebaseAuth.getInstance();
-        mEmail=(EditText)findViewById(R.id.id_email);
-        b_group=findViewById(R.id.id_donorBlood);
-        mName=findViewById(R.id.id_donorName);
-        mBirth=findViewById(R.id.id_dob);
+        mEmail=(EditText)findViewById(R.id.patient_email);
+        b_group=findViewById(R.id.patient_blood);
+        mNumber=findViewById(R.id.patient_phone);
+        mLocation=findViewById(R.id.hospital_address);
+        mName=findViewById(R.id.patientName);
+        mBirth=findViewById(R.id.patient_dob);
         gender_spin=findViewById(R.id.gender_spin);
         group_spin=findViewById(R.id.blood_spin);
-        register=(Button)findViewById(R.id.register_button);
+        register=(Button)findViewById(R.id.patient_register_button);
         pd=new ProgressDialog(this);
-        mPassword=(EditText)findViewById(R.id.id_password);
+        mPassword=(EditText)findViewById(R.id.patient_password);
         setupSpinner();
         //mVerify=findViewById(R.id.verify);
         mReference=FirebaseDatabase.getInstance().getReference();
@@ -64,6 +65,8 @@ public class DonorActivity extends AppCompatActivity {
                 String age=mBirth.getText().toString();
                 String group=b_group.getText().toString();
                 String name=mName.getText().toString();
+                String phone=mNumber.getText().toString();
+                String location=mLocation.getText().toString();
                 if(TextUtils.isEmpty(email)||TextUtils.isEmpty(pass))
                 {
                     Toast.makeText(DonorActivity.this,"Invalid Ceredentials",Toast.LENGTH_SHORT).show();
@@ -83,11 +86,11 @@ public class DonorActivity extends AppCompatActivity {
                     return;
                 }
                 else
-                    registerUser(name,email,pass,age,group);
+                    registerUser(name,email,pass,age,group,phone,location);
             }
         });
     }
-    private void registerUser(String name,String email,String pass,String age,String group)
+    private void registerUser(String name,String email,String pass,String age,String group,String phone,String location)
     {
         pd.setMessage("Please wait");
         pd.show();
@@ -99,6 +102,8 @@ public class DonorActivity extends AppCompatActivity {
                 map.put("dob",age);
                 map.put("email",email);
                 map.put("blood",group);
+                map.put("phone",phone);
+                map.put("location",location);
                 mReference.child("Donor").child(mAuth.getCurrentUser().getUid()).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

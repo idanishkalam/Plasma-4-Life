@@ -18,7 +18,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText edit_name;
     private EditText edit_password;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         edit_name=(EditText)findViewById(R.id.etName);
         edit_password=(EditText)findViewById(R.id.etPassword);
         login_button=(Button)findViewById(R.id.loginB);
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,RegistrationActivity.class));
+                startActivity(new Intent(LoginActivity.this,RegistrationActivity.class));
             }
         });
         login_button.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 String password=edit_password.getText().toString();
                 if(name.isEmpty()||password.isEmpty())
                 {
-                    Toast.makeText(MainActivity.this,"Field is Empty",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"Field is Empty",Toast.LENGTH_SHORT).show();
                     edit_name.setError("Email Required");
                     edit_name.requestFocus();
                     return;
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser!=null)
         {
-            Intent intent=new Intent(MainActivity.this,HomeActivity.class);
+            Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //to avoid going to same login page
             startActivity(intent);
         }
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 pd.dismiss();
                 if(task.isSuccessful())
                 {
-                 Intent intent=new Intent(MainActivity.this,HomeActivity.class);
+                 Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
                  intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //to avoid going to same login page
                     startActivity(intent);
                 }
