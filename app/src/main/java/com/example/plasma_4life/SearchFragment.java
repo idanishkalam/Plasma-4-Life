@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -26,7 +27,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class SearchFragment extends Fragment {
-
 
     private EditText loc,group;
     @Override
@@ -68,6 +68,10 @@ public class SearchFragment extends Fragment {
                            }
                        }
                     adapter.notifyDataSetChanged();
+                       if(donorLists.isEmpty())
+                       {
+                           Toast.makeText(getContext(),"No Donor Found",Toast.LENGTH_SHORT).show();
+                       }
                    }
 
                    @Override

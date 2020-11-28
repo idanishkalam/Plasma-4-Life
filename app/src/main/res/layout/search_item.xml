@@ -14,19 +14,23 @@
     android:layout_marginLeft="8dp"
     android:layout_marginTop="8dp"
     android:orientation="vertical">
+
     <TextView
         android:id="@+id/d_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="Name" />
+        android:fontFamily="@font/aclonica"
+        android:text="Name"
+        android:textSize="16sp" />
+
     <TextView
+        android:id="@+id/d_group"
         android:layout_width="wrap_content"
-        android:layout_marginTop="4dp"
-        android:textSize="16sp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/abril_fatface"
         android:text="group"
-        android:id="@+id/d_group"/>
+        android:textSize="16sp" />
 
 
 </LinearLayout>

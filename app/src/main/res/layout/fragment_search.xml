@@ -37,41 +37,46 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="25dp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/abril_fatface"
                     android:text="Find a donor"
                     android:textColor="#424242"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/donor_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/donor_location"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:background="@drawable/box"
+                    android:fontFamily="@font/abril_fatface"
                     android:gravity="center"
                     android:hint="Enter Location" />
 
                 <EditText
+                    android:id="@+id/donor_blood_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/donor_blood_group"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="15dp"
-                    android:gravity="center"
                     android:background="@drawable/box"
+                    android:fontFamily="@font/abril_fatface"
+                    android:gravity="center"
                     android:hint="Enter blood group" />
-          <Button
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/donor_search_button"
-              android:layout_gravity="center"
-              android:background="@drawable/box"
-              android:layout_marginTop="10dp"
-              android:layout_marginBottom="10dp"
-              android:text="Search"/>
+
+                <Button
+                    android:id="@+id/donor_search_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/box"
+                    android:fontFamily="@font/aclonica"
+                    android:text="Search" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

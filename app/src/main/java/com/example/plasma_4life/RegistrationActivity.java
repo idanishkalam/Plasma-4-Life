@@ -28,10 +28,10 @@ public class RegistrationActivity extends AppCompatActivity {
                 startActivity(new Intent(RegistrationActivity.this,DonorActivity.class));
             }
         });
-        mHospital.setOnClickListener(new View.OnClickListener() {
+        mPatient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RegistrationActivity.this,HospitalActivity.class));
+                startActivity(new Intent(RegistrationActivity.this,RequestActivity.class));
             }
         });
 
