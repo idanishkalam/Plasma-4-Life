@@ -98,12 +98,14 @@ public class DonorActivity extends AppCompatActivity {
             @Override
             public void onSuccess(AuthResult authResult) {
                 HashMap<String,Object> map=new HashMap<>();
+                HomeActivity.STATUS=100;
                 map.put("name",name);
                 map.put("dob",age);
                 map.put("email",email);
                 map.put("blood",group);
                 map.put("phone",phone);
                 map.put("location",location);
+                map.put("Status","Donor");
                 mReference.child("Donor").child(mAuth.getCurrentUser().getUid()).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

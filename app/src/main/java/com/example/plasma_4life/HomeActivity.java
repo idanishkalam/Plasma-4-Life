@@ -18,6 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
+    public static int STATUS;
      private FirebaseAuth mAuth;
      private Button mbut;
      private BottomNavigationView bottom_nav;

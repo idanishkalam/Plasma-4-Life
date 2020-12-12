@@ -92,12 +92,14 @@ public class RequestActivity extends AppCompatActivity {
             @Override
             public void onSuccess(AuthResult authResult) {
                 HashMap<String,Object> p_map=new HashMap<>();
+                HomeActivity.STATUS=101;
                 p_map.put("Name",name);
                 p_map.put("Email",email);
                 p_map.put("Blood",group);
                 p_map.put("phone",phone);
                 p_map.put("Address",address);
                 p_map.put("Attendent",attendent);
+                p_map.put("Status","Patient");
                 databaseReference.child("Patient").child(firebaseAuth.getCurrentUser().getUid()).setValue(p_map).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
