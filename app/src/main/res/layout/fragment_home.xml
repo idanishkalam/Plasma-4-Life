@@ -16,7 +16,7 @@
             android:id="@+id/textView2"
             android:layout_width="334dp"
             android:layout_height="129dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/radius"
             android:fontFamily="@font/aclonica"
             app:layout_constraintEnd_toEndOf="parent"
